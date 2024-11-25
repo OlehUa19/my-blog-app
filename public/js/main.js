@@ -65,5 +65,5 @@ async function editPost(id) {
     }
 }
 
-// Початкове завантаження
+
 fetchPosts();

@@ -3,12 +3,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-let posts = []; // Масив для зберігання постів
+let posts = [];
 
 app.use(bodyParser.json());
-app.use(express.static('public')); // для обслуговування статичних файлів (HTML, CSS, JS)
+app.use(express.static('public'));
 
-// Отримати всі пости
 app.get('/api/posts', (req, res) => {
     res.json(posts);
 });
