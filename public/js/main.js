@@ -3,7 +3,6 @@ const postsContainer = document.getElementById("posts");
 
 const API_URL = "/api/posts";
 
-// Завантаження постів
 async function fetchPosts() {
     const res = await fetch(API_URL);
     const posts = await res.json();
@@ -25,7 +24,7 @@ async function fetchPosts() {
     });
 }
 
-// Створення поста
+
 postForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -43,13 +42,13 @@ postForm.addEventListener("submit", async (e) => {
     fetchPosts();
 });
 
-// Видалення поста
+
 async function deletePost(id) {
-    await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/${id}`, { method: "delete" });
     fetchPosts();
 }
 
-// Редагування поста
+
 async function editPost(id) {
     const title = prompt("Новий заголовок:");
     const description = prompt("Новий опис:");
@@ -57,7 +56,7 @@ async function editPost(id) {
 
     if (title && description && author) {
         await fetch(`${API_URL}/${id}`, {
-            method: "PUT",
+            method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, description, author }),
         });

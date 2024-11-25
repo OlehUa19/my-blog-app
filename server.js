@@ -12,7 +12,7 @@ app.get('/api/posts', (req, res) => {
     res.json(posts);
 });
 
-// Створити новий пост
+
 app.post('/api/posts', (req, res) => {
     const { title, description, author } = req.body;
     const newPost = { id: Date.now(), title, description, author };
@@ -20,7 +20,7 @@ app.post('/api/posts', (req, res) => {
     res.status(201).json(newPost);
 });
 
-// Оновити пост
+
 app.put('/api/posts/:id', (req, res) => {
     const { id } = req.params;
     const { title, description, author } = req.body;
@@ -35,7 +35,7 @@ app.put('/api/posts/:id', (req, res) => {
     }
 });
 
-// Видалити пост
+
 app.delete('/api/posts/:id', (req, res) => {
     const { id } = req.params;
     posts = posts.filter(post => post.id != id);
